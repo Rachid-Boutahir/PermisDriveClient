@@ -1,0 +1,75 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "src",
+    "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "ES2022",
+    "useDefineForClassFields": false,
+    "lib": [
+      "ES2022",
+      "dom"
+    ],
+    "paths": {
+      "@core": ["app/core"],
+      "@util": ["app/utils"],
+      "@env": ["environments"],
+      "@shared": ["app/shared"],
+      "@config": ["app/configs"],
+      "@layout": ["app/layouts"],
+      "@model": ["app/core/models"],
+      "@guard": ["app/core/guards"],
+      "@service": ["app/core/services"],
+      "@interceptor": ["app/core/interceptors"],
+      "@main-layout": ["app/layouts/app-layouts/main-layout"],
+      "@auth-layout": ["app/layouts/app-layouts/auth-layout"],
+      "@signin": ["app/pages/authentication/signin"],
+      "@signup": ["app/pages/authentication/signup"],
+      "@page404": ["app/pages/authentication/page404"],
+      "@page500": ["app/pages/authentication/page500"],
+      "@forgot-password": ["app/pages/authentication/forgot-password"],
+      "@components": ["app/shared/components/feather-icons/"],
+
+
+      "@core/*": ["app/core/*"],
+      "@util/*": ["app/utils/*"],
+      "@env/*": ["environments/*"],
+      "@shared/*": ["app/shared/*"],
+      "@config/*": ["app/configs/*"],
+      "@layout/*": ["app/layouts/*"],
+      "@model/*": ["app/core/models/*"],
+      "@guard/*": ["app/core/guards/*"],
+      "@service/*": ["app/core/services/*"],
+      "@interceptor/*": ["app/core/interceptors/*"],
+      "@signin/*": ["app/pages/authentication/signin/*"],
+      "@signup/*": ["app/pages/authentication/signup/*"],
+      "@page404/*": ["app/pages/authentication/page404/*"],
+      "@page500/*": ["app/pages/authentication/page500/*"],
+      "@main-layout/*": ["app/layouts/app-layouts/main-layout/*"],
+      "@auth-layout/*": ["app/layouts/app-layouts/auth-layout/*"],
+      "@forgot-password/*": ["app/pages/authentication/forgot-password/*"],
+      "@components/*": ["app/shared/components/feather-icons/*"]
+    }
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
+}

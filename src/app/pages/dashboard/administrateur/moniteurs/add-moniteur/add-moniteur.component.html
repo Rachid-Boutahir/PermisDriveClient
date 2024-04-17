@@ -1,0 +1,189 @@
+<section class="content">
+  <div class="content-block">
+    @for (breadscrum of breadscrums; track breadscrum) {
+      <div class="block-header">
+        <app-breadcrumb
+          [title]="breadscrum.title"
+          [items]="breadscrum.items"
+          [active_item]="breadscrum.active">
+        </app-breadcrumb>
+      </div>
+    }
+    <div class="row clearfix">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+        <div class="card">
+          <div class="header">
+            <h2>Ajouter Moniteur :</h2>
+          </div>
+          <div class="body">
+            <form class="m-4" [formGroup]="proForm" (ngSubmit)="onSubmit()">
+
+              <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                  <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>Nom</mat-label>
+                    <input matInput formControlName="nom" required>
+                    <mat-icon class="material-icons-outlined color-icon p-3" matSuffix>face</mat-icon>
+                    @if (proForm.get('nom')?.hasError('required')) {
+                      <mat-error> Nom est requis</mat-error>
+                    }
+                  </mat-form-field>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                  <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>Prenom</mat-label>
+                    <input matInput formControlName="prenom" required>
+                    <mat-icon class="material-icons-outlined color-icon p-3" matSuffix>face</mat-icon>
+                    @if (proForm.get('nom')?.hasError('required')) {
+                      <mat-error> Prenom est requis</mat-error>
+                    }
+                  </mat-form-field>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                  <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email" required>
+                    <mat-icon class="material-icons-outlined color-icon p-3" matSuffix>email</mat-icon>
+                    @if (proForm.get('email')?.hasError('required') || proForm.get('email')?.touched) {
+                      <mat-error>
+                        Veuillez saisir une adresse e-mail valide
+                      </mat-error>
+                    }
+                  </mat-form-field>
+                </div>
+
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                  <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>Sexe</mat-label>
+                    <mat-select formControlName="sexe" required>
+                      <mat-option [value]="'HOMME'"> Homme</mat-option>
+                      <mat-option [value]="'FEMME'"> Femme</mat-option>
+                    </mat-select>
+                    @if (proForm.get('sexe')?.hasError('required')) {
+                      <mat-error> sexe est requis</mat-error>
+                    }
+                  </mat-form-field>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                  <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>Telephone</mat-label>
+                    <input matInput formControlName="telephone" type="number">
+                    <mat-icon class="material-icons-outlined color-icon p-3" matSuffix>phone</mat-icon>
+                    @if (proForm.get('telephone')?.hasError('required')) {
+                      <mat-error>
+                        Telephone est requis
+                      </mat-error>
+                    }
+                  </mat-form-field>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                  <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>Ville</mat-label>
+                    <input matInput formControlName="ville" required>
+                    <mat-icon class="material-icons-outlined color-icon p-3" matSuffix>home</mat-icon>
+                    @if (proForm.get('ville')?.hasError('required')) {
+                      <mat-error> Ville est requis</mat-error>
+                    }
+                  </mat-form-field>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                  <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>Adresse</mat-label>
+                    <input matInput formControlName="adresse" required>
+                    <mat-icon class="material-icons-outlined color-icon p-3" matSuffix>marke</mat-icon>
+                    @if (proForm.get('adresse')?.hasError('required')) {
+                      <mat-error> Adresse est requis</mat-error>
+                    }
+                  </mat-form-field>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                  <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>Type de moniteur</mat-label>
+                    <mat-select formControlName="typeMoniteur" required>
+                      <mat-option [value]="'THEORIQUE'">Theorique</mat-option>
+                      <mat-option [value]="'PRATIQUE'">Pratique</mat-option>
+                    </mat-select>
+                    <mat-icon class="material-icons-outlined color-icon p-3" matSuffix>person</mat-icon>
+                    @if (proForm.get('typeMoniteur')?.hasError('required')) {
+                      <mat-error> Type de moniteur est requis</mat-error>
+                    }
+                  </mat-form-field>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                  <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>Date de naissance</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="dateNaissance" required>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    @if (proForm.get('dateNaissance')?.hasError('required')) {
+                      <mat-error>
+                        Veuillez sélectionner une date
+                      </mat-error>
+                    }
+                  </mat-form-field>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                  <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>Date de joindre</mat-label>
+                    <input matInput [matDatepicker]="picker1" formControlName="dateJointures" required>
+                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1></mat-datepicker>
+                    @if (proForm.get('dateNaissance')?.hasError('required')) {
+                      <mat-error>
+                        Veuillez sélectionner une date
+                      </mat-error>
+                    }
+                  </mat-form-field>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                  <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>Salaire :</mat-label>
+                    <input matInput formControlName="salaire" type="number">
+                    <mat-icon class="material-icons-outlined color-icon p-3" matSuffix>money</mat-icon>
+                    @if (proForm.get('salaire')?.hasError('required')) {
+                      <mat-error>
+                        Salaire est requis
+                      </mat-error>
+                    }
+                  </mat-form-field>
+                </div>
+                <!--<div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-5">
+                  <label>Charger</label>
+                  <app-file-upload formControlName="uploadFile"></app-file-upload>
+                </div>
+              </div>-->
+              </div>
+
+
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                  <button class="btn-space" [disabled]="!proForm.valid " mat-raised-button
+                          color="primary">envoyer
+                  </button>
+                  <button type="button" mat-raised-button color="warn">Annuler</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

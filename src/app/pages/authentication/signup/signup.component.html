@@ -1,0 +1,135 @@
+<div class="auth-container">
+  <div class="row auth-main">
+    <div class="col-sm-6 px-0 d-none d-sm-block">
+      <div class="left-img" style="background-image: url(assets/images/pages/bg-02.png);">
+      </div>
+    </div>
+    <div class="col-sm-6 auth-form-section">
+      <div class="form-section">
+        <div class="auth-wrapper">
+          <h2 class="welcome-msg"> S'inscrire </h2>
+          <p class="auth-signup-text text-muted">
+            Veuillez remplir les informations requises pour créer votre compte.
+          </p>
+
+          <form class="validate-form" [formGroup]="authForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <mat-label>Utilisateur</mat-label>
+                  <input matInput formControlName="username" required>
+                  <mat-icon class="material-icons-outlined color-icon p-3" matSuffix>face</mat-icon>
+                  @if (authForm.get('username')?.hasError('required')) {
+                    <mat-error> Utilisateur est requis</mat-error>
+                  }
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xl-12col-lg-12 col-md-12 col-sm-12 mb-2">
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <mat-label>Email</mat-label>
+                  <input matInput formControlName="email" required>
+                  <mat-icon class="material-icons-outlined color-icon p-3" matSuffix>mail</mat-icon>
+                  @if (authForm.get('email')?.hasError('required') || authForm.get('email')?.touched) {
+                    <mat-error>
+                      Veuillez saisir une adresse e-mail valide.
+                    </mat-error>
+                  }
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xl-12col-lg-12 col-md-12 col-sm-12 mb-2">
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <mat-label>Mots de passe</mat-label>
+                  <input matInput formControlName="password" [type]="hide ? 'password' : 'text'"
+                         autocomplete="password"  required>
+                  <mat-icon matSuffix (click)="hide = !hide" class="pwd-toggle">
+                    {{ hide ? 'visibility_off' : 'visibility' }}
+                  </mat-icon>
+                  @if (authForm.get('password')?.hasError('required')) {
+                    <mat-error> Le mot de passe est requis.</mat-error>
+                  }
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xl-12col-lg-12 col-md-12 col-sm-12 mb-2">
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <mat-label>Confirmer le mots de passe :</mat-label>
+                  <input matInput formControlName="cpassword" [type]="chide ? 'password' : 'text'" autocomplete="cpassword"  required>
+                  <mat-icon matSuffix (click)="chide = !chide" class="pwd-toggle">
+                    {{ chide ? 'visibility_off' : 'visibility' }}
+                  </mat-icon>
+                  @if (authForm.get('cpassword')?.hasError('required')) {
+                    <mat-error> La confirmation de mot de passe est requis.</mat-error>
+                  }
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <mat-label>Roles</mat-label>
+                  <mat-select formControlName="role" required>
+                    <mat-option [value]="'admin'"> Administrateur</mat-option>
+                    <mat-option [value]="'moniteur'"> Moniteur</mat-option>
+                    <mat-option [value]="'candidat'"> Candidat</mat-option>
+                  </mat-select>
+                  <mat-icon matSuffix>persons</mat-icon>
+                  @if (authForm.get('role')?.hasError('required')) {
+                    <mat-error> role est nécessaire</mat-error>
+                  }
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="flex-sb-m w-full  p-b-20">
+              <div>
+                <span>
+                  déjà inscrite? &nbsp;
+                  <a routerLink="/authentication/signin">Login</a>
+                </span>
+              </div>
+            </div>
+            <div class="container-auth-form-btn">
+              <div style="text-align:center">
+                <button mat-raised-button color="primary"
+                        [class.auth-spinner]="loading"
+                        [disabled]="loading"
+                        class="auth-form-btn"
+                        [disabled]="!authForm.valid "
+                        type="submit">
+                  Enregistrer
+                </button>
+              </div>
+            </div>
+          </form>
+          <h6 class="social-login-title">OR</h6>
+          <ul class="list-unstyled social-icon mb-0 mt-3">
+            <li class="list-inline-item">
+              <a href="javascript:void(0)" class="rounded">
+                <i class="fab fa-google"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="javascript:void(0)" class="rounded flex-c-m">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="javascript:void(0)" class="rounded">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="javascript:void(0)" class="rounded">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
